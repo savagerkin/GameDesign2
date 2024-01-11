@@ -25,7 +25,8 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
             if (eventData.button == PointerEventData.InputButton.Left)
             {
                 FinishBarCreation();
-            }else if (eventData.button == PointerEventData.InputButton.Right)
+            }
+            else if (eventData.button == PointerEventData.InputButton.Right)
             {
                 BarCreationStarted = false;
                 DeleteCurrentBar();
@@ -48,6 +49,15 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
 
     private void FinishBarCreation()
     {
+        if (GameManager.AllPoints.ContainsKey(CurrentEndPoint.transform.position))
+        {
+            Destroy(CurrentEndPoint.gameObject);
+            CurrentEndPoint = GameManager.AllPoints[CurrentEndPoint.transform.position];
+        }
+        else
+        {
+            GameManager.AllPoints.Add(CurrentEndPoint.transform.position, CurrentEndPoint);
+        }
         CurrentStartPoint.ConnectedBars.Add(CurrentBar);
         CurrentEndPoint.ConnectedBars.Add(CurrentBar);
         StartBarCreation(CurrentEndPoint.transform.position);
@@ -57,7 +67,16 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
     {
         CurrentBar = Instantiate(BarToInstantiate, barParent).GetComponent<Bar>();
         CurrentBar.StartPosition = StartPosition;
-        CurrentStartPoint = Instantiate(PointToInstantiate, StartPosition, Quaternion.identity, PointParent).GetComponent<Points>();
+        if (GameManager.AllPoints.ContainsKey(StartPosition))
+        {
+            CurrentStartPoint = GameManager.AllPoints[StartPosition];
+        }
+        else
+        {
+            CurrentStartPoint = Instantiate(PointToInstantiate, StartPosition, Quaternion.identity, PointParent).GetComponent<Points>();
+            GameManager.AllPoints.Add(StartPosition, CurrentStartPoint);
+        }
+
         CurrentEndPoint = Instantiate(PointToInstantiate, StartPosition, Quaternion.identity, PointParent).GetComponent<Points>();
     }
 
@@ -66,7 +85,13 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
     {
         if (BarCreationStarted == true)
         {
-            CurrentEndPoint.transform.position = (Vector2)Vector2Int.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Vector2 EndPosition = (Vector2)Vector2Int.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Vector2 Dir = EndPosition - CurrentBar.StartPosition;
+            Vector2 ClampedPosition = CurrentBar.StartPosition + Vector2.ClampMagnitude(Dir, CurrentBar.maxLength);
+
+
+            CurrentEndPoint.transform.position = (Vector2)Vector2Int.RoundToInt(ClampedPosition);
+            CurrentEndPoint.PointID = CurrentEndPoint.transform.position;
             CurrentBar.UpdateCreatingBar(CurrentEndPoint.transform.position);
         }
     }

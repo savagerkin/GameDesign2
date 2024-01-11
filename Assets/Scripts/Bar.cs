@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bar : MonoBehaviour
 {
-
+    public float maxLength = 1f;
     public Vector2 StartPosition;
     public SpriteRenderer barSpriteRenderer;
     // Update is called once per frame
