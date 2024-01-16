@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bar : MonoBehaviour
 {
-    public float Cost = 1;
+    public float Cost = 1; //If you want to remove cost just change the prefabs cost to 0 and hide the slider of values.
     public float maxLength = 1f;
     public Vector2 StartPosition;
     public SpriteRenderer barSpriteRenderer;
