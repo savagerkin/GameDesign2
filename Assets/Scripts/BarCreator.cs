@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class BarCreator : MonoBehaviour, IPointerDownHandler
 {
+    public GameManager myGameManager;
+    public GameObject ConcreteBar;
+    public GameObject BrickBar;
     bool BarCreationStarted = false;
     public Bar CurrentBar;
     public GameObject BarToInstantiate;
@@ -24,7 +27,10 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
-                FinishBarCreation();
+                if (myGameManager.CanPlaceItem(CurrentBar.actualCost))
+                {
+                    FinishBarCreation();
+                }
             }
             else if (eventData.button == PointerEventData.InputButton.Right)
             {
@@ -60,13 +66,23 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
         }
         CurrentStartPoint.ConnectedBars.Add(CurrentBar);
         CurrentEndPoint.ConnectedBars.Add(CurrentBar);
+
+        CurrentBar.StartJoint.connectedBody = CurrentStartPoint.rbd;
+        CurrentBar.StartJoint.anchor = CurrentBar.transform.InverseTransformPoint(CurrentBar.StartPosition);
+        CurrentBar.EndJoint.connectedBody = CurrentEndPoint.rbd;
+        CurrentBar.EndJoint.anchor = CurrentBar.transform.InverseTransformPoint(CurrentEndPoint.transform.position);
+
+        myGameManager.UpdateBudget(CurrentBar.actualCost);
+
         StartBarCreation(CurrentEndPoint.transform.position);
+
     }
 
     private void StartBarCreation(Vector2 StartPosition)
     {
         CurrentBar = Instantiate(BarToInstantiate, barParent).GetComponent<Bar>();
         CurrentBar.StartPosition = StartPosition;
+
         if (GameManager.AllPoints.ContainsKey(StartPosition))
         {
             CurrentStartPoint = GameManager.AllPoints[StartPosition];
@@ -90,7 +106,7 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
             Vector2 ClampedPosition = CurrentBar.StartPosition + Vector2.ClampMagnitude(Dir, CurrentBar.maxLength);
 
 
-            CurrentEndPoint.transform.position = (Vector2)Vector2Int.RoundToInt(ClampedPosition);
+            CurrentEndPoint.transform.position = (Vector2)Vector2Int.RoundToInt(ClampedPosition); //FloorToInt is prefered however it causes some problem with unsymetric world
             CurrentEndPoint.PointID = CurrentEndPoint.transform.position;
             CurrentBar.UpdateCreatingBar(CurrentEndPoint.transform.position);
         }

@@ -17,6 +17,7 @@ public class Points : MonoBehaviour
         {
             rbd.bodyType = RigidbodyType2D.Static;
             PointID = transform.position;
+            
             if (GameManager.AllPoints.ContainsKey(PointID) == false)
             {
                 GameManager.AllPoints.Add(PointID, this);
