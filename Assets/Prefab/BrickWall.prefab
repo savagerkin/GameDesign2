@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 239039150907770537}
   - component: {fileID: 1422442819142292763}
   - component: {fileID: -9148113096451307068}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BrickWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.65}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -148,7 +148,7 @@ BoxCollider2D:
     border: {x: 8.2, y: 0, z: 7.66, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 18.84, y: 5.11}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 0.65}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
