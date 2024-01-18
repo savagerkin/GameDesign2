@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class BarCreator : MonoBehaviour, IPointerDownHandler
 {
+    public GameManager myGameManager;
+    public GameObject ConcreteBar;
+    public GameObject BrickBar;
     bool BarCreationStarted = false;
     public Bar CurrentBar;
     public GameObject BarToInstantiate;
@@ -24,8 +27,12 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
-                FinishBarCreation();
-            }else if (eventData.button == PointerEventData.InputButton.Right)
+                if (myGameManager.CanPlaceItem(CurrentBar.actualCost))
+                {
+                    FinishBarCreation();
+                }
+            }
+            else if (eventData.button == PointerEventData.InputButton.Right)
             {
                 BarCreationStarted = false;
                 DeleteCurrentBar();
@@ -48,16 +55,44 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
 
     private void FinishBarCreation()
     {
+        if (GameManager.AllPoints.ContainsKey(CurrentEndPoint.transform.position))
+        {
+            Destroy(CurrentEndPoint.gameObject);
+            CurrentEndPoint = GameManager.AllPoints[CurrentEndPoint.transform.position];
+        }
+        else
+        {
+            GameManager.AllPoints.Add(CurrentEndPoint.transform.position, CurrentEndPoint);
+        }
         CurrentStartPoint.ConnectedBars.Add(CurrentBar);
         CurrentEndPoint.ConnectedBars.Add(CurrentBar);
+
+        CurrentBar.StartJoint.connectedBody = CurrentStartPoint.rbd;
+        CurrentBar.StartJoint.anchor = CurrentBar.transform.InverseTransformPoint(CurrentBar.StartPosition);
+        CurrentBar.EndJoint.connectedBody = CurrentEndPoint.rbd;
+        CurrentBar.EndJoint.anchor = CurrentBar.transform.InverseTransformPoint(CurrentEndPoint.transform.position);
+
+        myGameManager.UpdateBudget(CurrentBar.actualCost);
+
         StartBarCreation(CurrentEndPoint.transform.position);
+
     }
 
     private void StartBarCreation(Vector2 StartPosition)
     {
         CurrentBar = Instantiate(BarToInstantiate, barParent).GetComponent<Bar>();
         CurrentBar.StartPosition = StartPosition;
-        CurrentStartPoint = Instantiate(PointToInstantiate, StartPosition, Quaternion.identity, PointParent).GetComponent<Points>();
+
+        if (GameManager.AllPoints.ContainsKey(StartPosition))
+        {
+            CurrentStartPoint = GameManager.AllPoints[StartPosition];
+        }
+        else
+        {
+            CurrentStartPoint = Instantiate(PointToInstantiate, StartPosition, Quaternion.identity, PointParent).GetComponent<Points>();
+            GameManager.AllPoints.Add(StartPosition, CurrentStartPoint);
+        }
+
         CurrentEndPoint = Instantiate(PointToInstantiate, StartPosition, Quaternion.identity, PointParent).GetComponent<Points>();
     }
 
@@ -66,7 +101,13 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
     {
         if (BarCreationStarted == true)
         {
-            CurrentEndPoint.transform.position = (Vector2)Vector2Int.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Vector2 EndPosition = (Vector2)Vector2Int.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Vector2 Dir = EndPosition - CurrentBar.StartPosition;
+            Vector2 ClampedPosition = CurrentBar.StartPosition + Vector2.ClampMagnitude(Dir, CurrentBar.maxLength);
+
+
+            CurrentEndPoint.transform.position = (Vector2)Vector2Int.RoundToInt(ClampedPosition); //FloorToInt is prefered however it causes some problem with unsymetric world
+            CurrentEndPoint.PointID = CurrentEndPoint.transform.position;
             CurrentBar.UpdateCreatingBar(CurrentEndPoint.transform.position);
         }
     }
