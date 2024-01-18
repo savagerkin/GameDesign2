@@ -7,6 +7,7 @@ public class QuizManager : MonoBehaviour
     public int currentPoints;
     public int pointsToAdd;
     
+    
     public void setPoints()
     {
         
