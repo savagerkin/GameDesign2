@@ -6,7 +6,8 @@ using TMPro;
 public class AnswerButton : MonoBehaviour
 {
     private bool isCorrect;
-    [SerializeField] private TextMeshProUGUI answerText;
+    [SerializeField]
+    private TextMeshProUGUI answerText;
 
     public void SetAnswerText(string newText)
     {
@@ -20,13 +21,13 @@ public class AnswerButton : MonoBehaviour
 
     public void OnClick()
     {
-        if (isCorrect)
+        if(isCorrect)
         {
-            Debug.Log("CORRECT");
+            Debug.Log("CORRECT ANSWER");
         }
         else
         {
-            Debug.Log("FALSE");
+            Debug.Log("WRONG ANSWER");
         }
     }
 }
