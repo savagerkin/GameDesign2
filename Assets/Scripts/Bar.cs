@@ -18,7 +18,6 @@ public class Bar : MonoBehaviour
     float EndJointCurrentLoad = 0f;
     MaterialPropertyBlock propBlock;
     public float actualCost;
-
     public void UpdateCreatingBar(Vector2 ToPosition)
     {
         transform.position = (ToPosition + StartPosition) / 2;
