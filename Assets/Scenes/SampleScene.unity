@@ -2202,7 +2202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelBudget: 1000
   CurrentBudget: 0
-  myUIManager: {fileID: 0}
+  myUIManager: {fileID: 81418931}
 --- !u!1 &1781511573
 GameObject:
   m_ObjectHideFlags: 0
