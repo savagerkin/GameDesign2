@@ -8,7 +8,7 @@ public class AnswerButton : MonoBehaviour
     private bool isCorrect;
     [SerializeField]
     private TextMeshProUGUI answerText;
-
+    public QuestionSetup questionSetup;
     public void SetAnswerText(string newText)
     {
         answerText.text = newText;
@@ -21,13 +21,23 @@ public class AnswerButton : MonoBehaviour
 
     public void OnClick()
     {
-        if(isCorrect)
+        if (isCorrect)
         {
             Debug.Log("CORRECT ANSWER");
+            switchQuestion();
         }
         else
         {
             Debug.Log("WRONG ANSWER");
         }
     }
+    public void switchQuestion()
+    {
+        Debug.Log("Change answer process begin");
+        questionSetup.SelectNewQuestion();
+        questionSetup.SetQuestionValues();
+        questionSetup.SetAnswerValues();
+
+    }
+
 }

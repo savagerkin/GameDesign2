@@ -146,6 +146,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 317710490}
     m_Modifications:
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: questionSetup
+      value: 
+      objectReference: {fileID: 592722635}
     - target: {fileID: 3920321044068291789, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -343,6 +347,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 317710490}
     m_Modifications:
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: questionSetup
+      value: 
+      objectReference: {fileID: 592722635}
     - target: {fileID: 3920321044068291789, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -521,6 +529,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 317710490}
     m_Modifications:
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: questionSetup
+      value: 
+      objectReference: {fileID: 592722635}
     - target: {fileID: 3920321044068291789, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -794,8 +806,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1168,6 +1180,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 317710490}
     m_Modifications:
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: questionSetup
+      value: 
+      objectReference: {fileID: 592722635}
     - target: {fileID: 3920321044068291789, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
