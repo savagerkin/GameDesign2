@@ -9,6 +9,7 @@ public class AnswerButton : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI answerText;
 
+    public QuizManager quizManager;
     public void SetAnswerText(string newText)
     {
         answerText.text = newText;
@@ -23,6 +24,7 @@ public class AnswerButton : MonoBehaviour
     {
         if(isCorrect)
         {
+            quizManager.addPoints();
             Debug.Log("CORRECT ANSWER");
         }
         else
