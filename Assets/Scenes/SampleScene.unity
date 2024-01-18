@@ -306,7 +306,7 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 1, g: 0.07661381, b: 0, a: 1}
     key1: {r: 1, g: 0.44835675, b: 0.25, a: 1}
-    key2: {r: 1, g: 0.34963018, b: 0, a: 0}
+    key2: {r: 1, g: 0.7215955, b: 0, a: 0}
     key3: {r: 1, g: 1, b: 1, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -2413,7 +2413,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1087787467}
   m_HandleRect: {fileID: 0}
