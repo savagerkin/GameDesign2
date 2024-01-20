@@ -42,13 +42,13 @@ public class QuestionSetup : MonoBehaviour
         
     }
 
-    private void GetQuestionAssets()
+    public void GetQuestionAssets()
     {
         // Get all of the questions from the questions folder
         questions = new List<QuestionData>(Resources.LoadAll<QuestionData>("Questions"));
     }
 
-    private void SelectNewQuestion()
+    public void SelectNewQuestion()
     {
         // Get a random value for which question to choose
         int randomQuestionIndex = Random.Range(0, questions.Count);
@@ -58,7 +58,7 @@ public class QuestionSetup : MonoBehaviour
         questions.RemoveAt(randomQuestionIndex);
     }
 
-    private void SetQuestionValues()
+    public void SetQuestionValues()
     {
         // Set the question text
         questionText.text = currentQuestion.question;
@@ -66,7 +66,7 @@ public class QuestionSetup : MonoBehaviour
         categoryText.text = currentQuestion.category;
     }
 
-    private void SetAnswerValues()
+    public void SetAnswerValues()
     {
         // Randomize the answer button order
         List<string> answers = RandomizeAnswers(new List<string>(currentQuestion.answers));

@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AnswerButton : MonoBehaviour
 {
+    public PointManager pointManagter;
     private bool isCorrect;
-    [SerializeField]
-    private TextMeshProUGUI answerText;
-
+    [SerializeField]private TextMeshProUGUI answerText;
+    public QuestionSetup questionSetup;
     public void SetAnswerText(string newText)
     {
         answerText.text = newText;
@@ -21,7 +23,8 @@ public class AnswerButton : MonoBehaviour
 
     public void OnClick()
     {
-        if(isCorrect)
+        //switchQuestion();
+        if (isCorrect)
         {
             Debug.Log("CORRECT ANSWER");
         }
@@ -29,5 +32,15 @@ public class AnswerButton : MonoBehaviour
         {
             Debug.Log("WRONG ANSWER");
         }
+
+        pointManagter.Counter++;
+
     }
+    public void switchQuestion()
+    {
+        questionSetup.SelectNewQuestion();
+        questionSetup.SetQuestionValues();
+        questionSetup.SetAnswerValues();
+    }
+
 }
