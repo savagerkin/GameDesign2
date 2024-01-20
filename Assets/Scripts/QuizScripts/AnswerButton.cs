@@ -31,8 +31,12 @@ public class AnswerButton : MonoBehaviour
         {
             Debug.Log("WRONG ANSWER");
         }
-        buildManager.correctCounter++;
+        buildManager.Point++;
         switchQuestion();
+        if (buildManager.Point > 4)
+        {
+            
+        }
     }
     public void switchQuestion()
     {
