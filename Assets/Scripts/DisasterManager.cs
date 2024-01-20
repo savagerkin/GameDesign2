@@ -1,36 +1,19 @@
-/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DisasterManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-}
-*/
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class DisasterManager : MonoBehaviour
-{
+    public GameObject mainCamera;
     public float startTime = 10;
     private float timeRemaining;
     
     public bool timerIsRunning = false;
     public bool disastersActive = false;
     public bool disasterIsRandom = true;
+
+    public bool cameraIsShaking = false;
+    public float cameraShakeAmount = 0.1f;
     
     [Range(1, 3)] public int selectedDisaster = 1;
     
@@ -49,13 +32,14 @@ public class DisasterManager : MonoBehaviour
     private int disasterRandomiser;
     
     
-
+    // Start is called before the first frame update
     private void Start()
     {
         timeRemaining = startTime;
         InvokeRepeating("ChangeEarthquakeAngle", 0f, 0.2f);
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (timerIsRunning)
@@ -78,6 +62,9 @@ public class DisasterManager : MonoBehaviour
                         case 2 :
                             break;
                         case 3 :
+                            if (cameraIsShaking) {
+                                mainCamera.transform.localPosition = (Random.insideUnitSphere +  new Vector3(0, 0, -10)) * cameraShakeAmount;
+                            }
                             break;
                     }
                 }
@@ -106,6 +93,8 @@ public class DisasterManager : MonoBehaviour
                             break;
                         case 3:
                             earthquakeInstant.SetActive(false);
+                            cameraIsShaking = false;
+                            mainCamera.transform.position = new Vector3(0, 0, -10);
                             break;
                     }
                 }
@@ -120,7 +109,7 @@ public class DisasterManager : MonoBehaviour
         {
             if (disasterIsRandom)
             {
-                disasterRandomiser = Random.Range(1, 2);
+                disasterRandomiser = Random.Range(1, 4);
             }
             else
             {
@@ -139,6 +128,7 @@ public class DisasterManager : MonoBehaviour
                 case 3 :
                     earthquakeInstant = Instantiate(earthquake);
                     earthquakeInstant.GetComponent<AreaEffector2D>().forceMagnitude = earthquakeMagnitude;
+                    cameraIsShaking = true;
                     break;
             } 
         }

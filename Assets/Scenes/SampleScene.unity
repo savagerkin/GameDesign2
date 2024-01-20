@@ -862,7 +862,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -1548,17 +1548,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b594965cd019b8041b58ee8ebca6b57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 333420300}
   startTime: 10
   timerIsRunning: 0
   disastersActive: 1
-  disasterIsRandom: 0
+  disasterIsRandom: 1
+  cameraIsShaking: 0
+  cameraShakeAmount: 0.2
   selectedDisaster: 3
   wind: {fileID: 3877748520013528034, guid: 74e0466ea15ee5b4e8b3aa7d9bd95301, type: 3}
   boulder: {fileID: 4078825687153624924, guid: d0ac9ac09e5cd4949a27e71003516b97, type: 3}
   earthquake: {fileID: 3221437375264722612, guid: cb21d156143208b40968943cb0a937fc, type: 3}
   boulderMass: 6
   windMagnitude: 5
-  earthquakeMagnitude: 15
+  earthquakeMagnitude: 16
 --- !u!1 &1224677974
 GameObject:
   m_ObjectHideFlags: 0
