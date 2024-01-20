@@ -147,9 +147,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 317710490}
     m_Modifications:
     - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: pointManagter
+      value: 
+      objectReference: {fileID: 1397332126}
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: questionSetup
       value: 
       objectReference: {fileID: 592722635}
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: counterCorrectTxt
+      value: 
+      objectReference: {fileID: 732527596}
     - target: {fileID: 3920321044068291789, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -372,9 +380,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 317710490}
     m_Modifications:
     - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: pointManagter
+      value: 
+      objectReference: {fileID: 1397332126}
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: questionSetup
       value: 
       objectReference: {fileID: 592722635}
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: counterCorrectTxt
+      value: 
+      objectReference: {fileID: 732527596}
     - target: {fileID: 3920321044068291789, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -579,9 +595,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 317710490}
     m_Modifications:
     - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: pointManagter
+      value: 
+      objectReference: {fileID: 1397332126}
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: questionSetup
       value: 
       objectReference: {fileID: 592722635}
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: counterCorrectTxt
+      value: 
+      objectReference: {fileID: 732527596}
     - target: {fileID: 3920321044068291789, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -847,7 +871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 103.055, y: -25.25}
+  m_AnchoredPosition: {x: 103.05499, y: -25.25}
   m_SizeDelta: {x: 206.11, y: 50.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &732527596
@@ -1153,8 +1177,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1397332125}
+  - component: {fileID: 1397332126}
   m_Layer: 0
-  m_Name: QuizManager
+  m_Name: PointManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1175,6 +1200,20 @@ Transform:
   m_Father: {fileID: 1823160033}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1397332126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397332124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64263b64243f441b2cf4ce00f2810c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Counter: 0
+  counterCorrectTxt: {fileID: 732527596}
 --- !u!224 &1399797328 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3920321044068291789, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
@@ -1366,9 +1405,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 317710490}
     m_Modifications:
     - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: pointManagter
+      value: 
+      objectReference: {fileID: 1397332126}
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: questionSetup
       value: 
       objectReference: {fileID: 592722635}
+    - target: {fileID: 3920321044068291784, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
+      propertyPath: counterCorrectTxt
+      value: 
+      objectReference: {fileID: 732527596}
     - target: {fileID: 3920321044068291789, guid: 0b8a696e87d0243848f62bdaeb54844f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
