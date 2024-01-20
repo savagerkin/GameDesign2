@@ -14,7 +14,7 @@ public class ShopManagerScript : MonoBehaviour
     void Start()
     {
         //item ids
-        CoinsTxt.text = "Coins: " + coins.ToString();
+        CoinsTxt.text = "Points: " + coins.ToString();
         shopItems[1, 1] = 1;
         shopItems[1, 2] = 2;
         shopItems[1, 3] = 3;
