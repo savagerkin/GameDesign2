@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class AnswerButton : MonoBehaviour
 {
-    public PointManager pointManagter;
+    public BuildManager buildManager;
     private bool isCorrect;
     [SerializeField]private TextMeshProUGUI answerText;
     public QuestionSetup questionSetup;
@@ -23,7 +23,6 @@ public class AnswerButton : MonoBehaviour
 
     public void OnClick()
     {
-        //switchQuestion();
         if (isCorrect)
         {
             Debug.Log("CORRECT ANSWER");
@@ -32,9 +31,8 @@ public class AnswerButton : MonoBehaviour
         {
             Debug.Log("WRONG ANSWER");
         }
-
-        pointManagter.Counter++;
-
+        buildManager.correctCounter++;
+        switchQuestion();
     }
     public void switchQuestion()
     {
