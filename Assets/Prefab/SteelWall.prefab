@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f65b8bae5edd2748bc6db4d7487d285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 40
+  Cost: 100
   maxLength: 3
   StartPosition: {x: 0, y: 0}
   barSpriteRenderer: {fileID: 2745098648263481408}
