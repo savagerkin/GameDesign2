@@ -5,19 +5,14 @@ using TMPro;
 
 public class QuestionSetup : MonoBehaviour
 {
-    [SerializeField]
-    private List<QuestionData> questions;
+    [SerializeField] private List<QuestionData> questions;
     private QuestionData currentQuestion;
 
-    [SerializeField]
-    private TextMeshProUGUI questionText;
-    [SerializeField]
-    private TextMeshProUGUI categoryText;
-    [SerializeField]
-    private AnswerButton[] answerButtons;
+    [SerializeField] private TextMeshProUGUI questionText;
+    [SerializeField] private TextMeshProUGUI categoryText;
+    [SerializeField] private AnswerButton[] answerButtons;
 
-    [SerializeField]
-    private int correctAnswerChoice;
+    [SerializeField] private int correctAnswerChoice;
 
     private void Awake()
     {
@@ -34,12 +29,6 @@ public class QuestionSetup : MonoBehaviour
         SetQuestionValues();
         // Set all of the answer buttons text and correct answer values
         SetAnswerValues();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void GetQuestionAssets()
@@ -78,7 +67,7 @@ public class QuestionSetup : MonoBehaviour
             bool isCorrect = false;
 
             // If it is the correct answer, set the bool to true
-            if(i == correctAnswerChoice)
+            if (i == correctAnswerChoice)
             {
                 isCorrect = true;
             }
@@ -92,15 +81,15 @@ public class QuestionSetup : MonoBehaviour
     {
         bool correctAnswerChosen = false;
 
-        List<string>  newList = new List<string>();
+        List<string> newList = new List<string>();
 
-        for(int i = 0; i < answerButtons.Length; i++)
+        for (int i = 0; i < answerButtons.Length; i++)
         {
             // Get a random number of the remaining choices
             int random = Random.Range(0, originalList.Count);
 
             // If the random number is 0, this is the correct answer, MAKE SURE THIS IS ONLY USED ONCE
-            if(random == 0 && !correctAnswerChosen)
+            if (random == 0 && !correctAnswerChosen)
             {
                 correctAnswerChoice = i;
                 correctAnswerChosen = true;
@@ -109,7 +98,7 @@ public class QuestionSetup : MonoBehaviour
             // Add this to the new list
             newList.Add(originalList[random]);
             //Remove this choice from the original list (it has been used)
-            originalList.RemoveAt(random);  
+            originalList.RemoveAt(random);
         }
 
 

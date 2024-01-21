@@ -9,8 +9,9 @@ public class AnswerButton : MonoBehaviour
 {
     public BuildManager buildManager;
     private bool isCorrect;
-    [SerializeField]private TextMeshProUGUI answerText;
+    [SerializeField] private TextMeshProUGUI answerText;
     public QuestionSetup questionSetup;
+    [SerializeField] private Text _text;
     public void SetAnswerText(string newText)
     {
         answerText.text = newText;
@@ -31,18 +32,20 @@ public class AnswerButton : MonoBehaviour
         {
             Debug.Log("WRONG ANSWER");
         }
+
         buildManager.Point++;
         switchQuestion();
-        if (buildManager.Point > 4)
+        _text.text = buildManager.Point.ToString();
+        if (buildManager.Point > 1)
         {
-            
+            SceneManager.LoadScene(2);
         }
     }
+
     public void switchQuestion()
     {
         questionSetup.SelectNewQuestion();
         questionSetup.SetQuestionValues();
         questionSetup.SetAnswerValues();
     }
-
 }
