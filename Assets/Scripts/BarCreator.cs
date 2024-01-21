@@ -6,16 +6,25 @@ using UnityEngine.EventSystems;
 public class BarCreator : MonoBehaviour, IPointerDownHandler
 {
     public GameManager myGameManager;
+    
     public GameObject ConcreteBar;
     public GameObject BrickBar;
+    public GameObject WoodBar;
+    public GameObject SteelBar;
+    
     bool BarCreationStarted = false;
+    
     public Bar CurrentBar;
+    
     public GameObject BarToInstantiate;
     public Transform barParent;
-    public Points CurrentStartPoint;
-    public Points CurrentEndPoint;
     public GameObject PointToInstantiate;
     public Transform PointParent;
+    
+    public Points CurrentStartPoint;
+    public Points CurrentEndPoint;
+    
+    
     public void OnPointerDown(PointerEventData eventData)
     {
         if (BarCreationStarted == false)

@@ -120,12 +120,12 @@ TextureImporter:
       name: brick_wall_1_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 25
-        width: 1884
-        height: 511
+        x: 16
+        y: 6
+        width: 1898
+        height: 545
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 820, y: 0, z: 766, w: 0}
       outline: []
       physicsShape: []
