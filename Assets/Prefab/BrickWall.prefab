@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -9148113096451307068}
   m_Layer: 7
   m_Name: BrickWall
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
