@@ -2522,7 +2522,10 @@ MonoBehaviour:
   timerIsRunning: 0
   disastersActive: 1
   disasterIsRandom: 0
-  selectedDisaster: 1
+  selectedDisaster: 3
+  mainCamera: {fileID: 333420300}
+  cameraIsShaking: 0
+  cameraShakeAmount: 0.1
   wind: {fileID: 3877748520013528034, guid: 74e0466ea15ee5b4e8b3aa7d9bd95301, type: 3}
   boulder: {fileID: 4078825687153624924, guid: d0ac9ac09e5cd4949a27e71003516b97, type: 3}
   earthquake: {fileID: 3221437375264722612, guid: cb21d156143208b40968943cb0a937fc, type: 3}
@@ -3876,6 +3879,7 @@ MonoBehaviour:
   MinHeight: {fileID: 382166601}
   _barCreator: {fileID: 384191043}
   roundNumber: 0
+  testFloat: 0
 --- !u!1 &1645520037
 GameObject:
   m_ObjectHideFlags: 0
