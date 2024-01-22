@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CheckLose : MonoBehaviour
 {
-    private int count = 0;
+    [SerializeField] private int count = 0;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,16 +27,33 @@ public class CheckLose : MonoBehaviour
             if (count <= 0)
             {
                 Debug.Log("You Lose");
+
                 loseGame();
             }
         }
     }
 
+    public void checkWall()
+    {
+        StartCoroutine(waiter());
+    }
+
+    IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(1f);
+        if (count <= 0)
+        {
+            Debug.Log("You Lose");
+
+            loseGame();
+        }
+    }
+
     [SerializeField] private Canvas loserCanvas;
+
     private void loseGame()
     {
         Time.timeScale = 0;
         loserCanvas.gameObject.SetActive(true);
     }
-
 }

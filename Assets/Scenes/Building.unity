@@ -1123,6 +1123,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 531495985}
+        m_TargetAssemblyTypeName: CheckLose, Assembly-CSharp
+        m_MethodName: checkWall
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &289467250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1611,6 +1623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b5b185e791532459214136c72d3555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 0
   loserCanvas: {fileID: 1015245476}
 --- !u!1 &545080448
 GameObject:
@@ -2091,7 +2104,7 @@ GameObject:
   - component: {fileID: 823657421}
   - component: {fileID: 823657420}
   - component: {fileID: 823657423}
-  - component: {fileID: 823657422}
+  - component: {fileID: 823657424}
   m_Layer: 8
   m_Name: groundGrass
   m_TagString: Untagged
@@ -2140,11 +2153,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 63c01a0a3fafdfb409064fbe9844fc72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 84f19f4af01e2264bba7701b8c11d424, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 15.12, y: 2.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -2159,39 +2172,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823657419}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07999995, y: -5.65, z: -90}
-  m_LocalScale: {x: 2.2900004, y: 2.29, z: 2.29}
+  m_LocalPosition: {x: 6.36, y: -7.6, z: -90}
+  m_LocalScale: {x: 0.6843189, y: 0.4259688, z: 3.79453}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 191717206}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &823657422
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823657419}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.35737848, y: -0.0080024}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.61, y: 2.5}
-    newSize: {x: 15.12, y: 2.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 2
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 14.707204, y: 2.4839952}
-  m_EdgeRadius: 0
 --- !u!50 &823657423
 Rigidbody2D:
   serializedVersion: 4
@@ -2213,6 +2200,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &823657424
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823657419}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 83.840004, y: 22.27}
+    newSize: {x: 15.12, y: 2.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 83.840004, y: 22.27}
+  m_EdgeRadius: 0
 --- !u!1 &977349796
 GameObject:
   m_ObjectHideFlags: 0
@@ -4423,7 +4436,6 @@ MonoBehaviour:
   MinHeight: {fileID: 382166601}
   _barCreator: {fileID: 384191043}
   roundNumber: 0
-  testFloat: 0
 --- !u!1 &1645520037
 GameObject:
   m_ObjectHideFlags: 0

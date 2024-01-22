@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         AllPoints.Clear();
         Time.timeScale = 0;
 
-        //Creating the postion of losing square
+        //Creating the postion of alive square
         _roundCounter = FindObjectOfType<RoundCounter>();
         roundNumber = _roundCounter.RoundCount;
         var position = MinHeight.transform.position;
@@ -81,9 +81,7 @@ public class GameManager : MonoBehaviour
         CurrentBudget -= itemCost;
         myUIManager.UpdateBudgetUI(CurrentBudget, LevelBudget);
     }
-
-    [SerializeField] private float testFloat = 0;
-
+    
 
     public void Update()
     {
