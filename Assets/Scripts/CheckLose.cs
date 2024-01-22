@@ -26,7 +26,13 @@ public class CheckLose : MonoBehaviour
             if (count <= 0)
             {
                 Debug.Log("You Lose");
+                loseGame();
             }
         }
+    }
+    private void loseGame()
+    {
+        Time.timeScale = 0;
+        
     }
 }

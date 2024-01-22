@@ -18,13 +18,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform MinHeight = null;
     private float middleOfMaxMin;
     [SerializeField] private BarCreator _barCreator;
-
+    [SerializeField] private float roundNumber = 1;
     void Awake()
     {
         CurrentBudget = LevelBudget;
         myUIManager.UpdateBudgetUI(CurrentBudget, LevelBudget);
         AllPoints.Clear();
         Time.timeScale = 0;
+
+        var position = MinHeight.transform.position;
+        position.y = roundNumber;
+        MinHeight.transform.position = position;
 
         middleOfMaxMin = (MaxHeight.transform.position.y - MinHeight.transform.position.y) / 2;
 
