@@ -19,10 +19,12 @@ public class DisasterManager : MonoBehaviour
 }
 */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class DisasterManager : MonoBehaviour
 {
@@ -54,13 +56,22 @@ public class DisasterManager : MonoBehaviour
     private int disasterRandomiser;
     [SerializeField] private Canvas winCanvas;
 
+    private RoundCounter _roundCounter;
 
     private void Start()
     {
         timeRemaining = startTime;
         InvokeRepeating("ChangeEarthquakeAngle", 0f, 0.2f);
     }
-    
+
+    private void Awake()
+    {
+        _roundCounter = FindObjectOfType<RoundCounter>();
+        boulderMass = 4 + _roundCounter.RoundCount;
+        windMagnitude = (float)(4 + 0.75 * _roundCounter.RoundCount);
+        earthquakeMagnitude = (15f) +_roundCounter.RoundCount;
+    }
+
 
     void Update()
     {
@@ -122,14 +133,12 @@ public class DisasterManager : MonoBehaviour
                             break;
                     }
                 }
-
                 Time.timeScale = 0;
                 winCanvas.gameObject.SetActive(true);
             }
         }
     }
 
-   
 
     public void StartDisaster()
     {
