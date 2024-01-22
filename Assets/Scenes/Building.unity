@@ -2674,7 +2674,7 @@ MonoBehaviour:
   startTime: 10
   timerIsRunning: 0
   disastersActive: 1
-  disasterIsRandom: 0
+  disasterIsRandom: 1
   selectedDisaster: 3
   mainCamera: {fileID: 333420300}
   cameraIsShaking: 0

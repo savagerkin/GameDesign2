@@ -50,7 +50,6 @@ public class CheckLose : MonoBehaviour
     }
 
     [SerializeField] private Canvas loserCanvas;
-
     private void loseGame()
     {
         Time.timeScale = 0;
