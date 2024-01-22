@@ -40,10 +40,9 @@ public class AnswerButton : MonoBehaviour
         {
             Debug.Log("WRONG ANSWER");
         }
-
         buildManager.Point++;
         switchQuestion();
-        _text.text = buildManager.Point.ToString();
+        _text.text = "Points:" + buildManager.Point.ToString();
         if (buildManager.Point > limit)
         {
             SceneManager.LoadScene("Building");
