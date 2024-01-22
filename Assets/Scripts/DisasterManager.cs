@@ -34,11 +34,11 @@ public class DisasterManager : MonoBehaviour
     public bool disasterIsRandom = true;
 
     [Range(1, 3)] public int selectedDisaster = 1;
-    
+
     public GameObject mainCamera;
     public bool cameraIsShaking = false;
     public float cameraShakeAmount = 0.1f;
-    
+
     public GameObject wind;
     public GameObject boulder;
     public GameObject earthquake;
@@ -60,6 +60,7 @@ public class DisasterManager : MonoBehaviour
         timeRemaining = startTime;
         InvokeRepeating("ChangeEarthquakeAngle", 0f, 0.2f);
     }
+    
 
     void Update()
     {
@@ -86,7 +87,7 @@ public class DisasterManager : MonoBehaviour
                             if (cameraIsShaking)
                             {
                                 mainCamera.transform.localPosition =
-                                    (Random.insideUnitSphere + new Vector3(0, 0, -10)) * cameraShakeAmount;
+                                    (Random.insideUnitSphere * cameraShakeAmount) + new Vector3(0, 3, -10);
                             }
 
                             break;
@@ -117,7 +118,7 @@ public class DisasterManager : MonoBehaviour
                         case 3:
                             earthquakeInstant.SetActive(false);
                             cameraIsShaking = false;
-                            mainCamera.transform.position = new Vector3(0, 0, -10);
+                            mainCamera.transform.position = new Vector3(0, 3, -10);
                             break;
                     }
                 }
@@ -127,6 +128,8 @@ public class DisasterManager : MonoBehaviour
             }
         }
     }
+
+   
 
     public void StartDisaster()
     {
