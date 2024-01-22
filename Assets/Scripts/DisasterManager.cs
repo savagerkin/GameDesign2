@@ -154,6 +154,7 @@ public class DisasterManager : MonoBehaviour
                 case 3:
                     earthquakeInstant = Instantiate(earthquake);
                     earthquakeInstant.GetComponent<AreaEffector2D>().forceMagnitude = earthquakeMagnitude;
+                    cameraIsShaking = true;
                     break;
             }
         }
