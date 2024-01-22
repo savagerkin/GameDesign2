@@ -518,7 +518,7 @@ MonoBehaviour:
   ConcreteButton: {fileID: 1224677977}
   SteelButton: {fileID: 1448358878}
   barCreator: {fileID: 384191043}
-  creationUIObject: {fileID: 384191039}
+  creationUIObject: {fileID: 0}
 --- !u!4 &159954290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5347484681353916641, guid: 1bcc66fcfc0444644bfad60205cd40d6, type: 3}
@@ -1471,7 +1471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b5b185e791532459214136c72d3555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loserCanvas: {fileID: 1015245476}
+  loserCanvas: {fileID: 0}
 --- !u!1 &545080448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2019,12 +2019,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823657419}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.14885, y: -245.82364, z: -2444.6548}
-  m_LocalScale: {x: 62.202892, y: 62.202885, z: 62.202885}
+  m_LocalPosition: {x: -0.30000004, y: -6.04, z: 0}
+  m_LocalScale: {x: 2.2900004, y: 2.29, z: 2.29}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1374586748}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &823657422
 BoxCollider2D:
@@ -2518,18 +2518,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b594965cd019b8041b58ee8ebca6b57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 333420300}
   startTime: 10
   timerIsRunning: 0
   disastersActive: 1
   disasterIsRandom: 0
-  selectedDisaster: 1
+  cameraIsShaking: 0
+  cameraShakeAmount: 0.1
+  selectedDisaster: 3
   wind: {fileID: 3877748520013528034, guid: 74e0466ea15ee5b4e8b3aa7d9bd95301, type: 3}
   boulder: {fileID: 4078825687153624924, guid: d0ac9ac09e5cd4949a27e71003516b97, type: 3}
   earthquake: {fileID: 3221437375264722612, guid: cb21d156143208b40968943cb0a937fc, type: 3}
   boulderMass: 6
   windMagnitude: 5
   earthquakeMagnitude: 15
-  winCanvas: {fileID: 1505664686}
+  winCanvas: {fileID: 0}
 --- !u!1 &1222195802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2984,7 +2987,6 @@ RectTransform:
   m_Children:
   - {fileID: 384191040}
   - {fileID: 1376872308}
-  - {fileID: 823657421}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3876,6 +3878,7 @@ MonoBehaviour:
   MinHeight: {fileID: 382166601}
   _barCreator: {fileID: 384191043}
   roundNumber: 0
+  testFloat: 0
 --- !u!1 &1645520037
 GameObject:
   m_ObjectHideFlags: 0
