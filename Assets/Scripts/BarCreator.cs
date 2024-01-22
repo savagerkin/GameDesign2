@@ -3,19 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+
 public class BarCreator : MonoBehaviour, IPointerDownHandler
 {
     public GameManager myGameManager;
+
     public GameObject ConcreteBar;
     public GameObject BrickBar;
+    public GameObject WoodBar;
+    public GameObject SteelBar;
+
     bool BarCreationStarted = false;
+
     public Bar CurrentBar;
+
     public GameObject BarToInstantiate;
     public Transform barParent;
-    public Points CurrentStartPoint;
-    public Points CurrentEndPoint;
     public GameObject PointToInstantiate;
     public Transform PointParent;
+
+    public Points CurrentStartPoint;
+    public Points CurrentEndPoint;
+
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (BarCreationStarted == false)
@@ -47,6 +57,7 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
         {
             Destroy(CurrentStartPoint.gameObject);
         }
+
         if (CurrentEndPoint.ConnectedBars.Count == 0 && CurrentEndPoint.Runtime == true)
         {
             Destroy(CurrentEndPoint.gameObject);
@@ -64,6 +75,7 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
         {
             GameManager.AllPoints.Add(CurrentEndPoint.transform.position, CurrentEndPoint);
         }
+
         CurrentStartPoint.ConnectedBars.Add(CurrentBar);
         CurrentEndPoint.ConnectedBars.Add(CurrentBar);
 
@@ -75,7 +87,6 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
         myGameManager.UpdateBudget(CurrentBar.actualCost);
 
         StartBarCreation(CurrentEndPoint.transform.position);
-
     }
 
     private void StartBarCreation(Vector2 StartPosition)
@@ -89,16 +100,19 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
         }
         else
         {
-            CurrentStartPoint = Instantiate(PointToInstantiate, StartPosition, Quaternion.identity, PointParent).GetComponent<Points>();
+            CurrentStartPoint = Instantiate(PointToInstantiate, StartPosition, Quaternion.identity, PointParent)
+                .GetComponent<Points>();
             GameManager.AllPoints.Add(StartPosition, CurrentStartPoint);
         }
 
-        CurrentEndPoint = Instantiate(PointToInstantiate, StartPosition, Quaternion.identity, PointParent).GetComponent<Points>();
+        CurrentEndPoint = Instantiate(PointToInstantiate, StartPosition, Quaternion.identity, PointParent)
+            .GetComponent<Points>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (BarCreationStarted == true)
         {
             Vector2 EndPosition = (Vector2)Vector2Int.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
@@ -106,7 +120,9 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
             Vector2 ClampedPosition = CurrentBar.StartPosition + Vector2.ClampMagnitude(Dir, CurrentBar.maxLength);
 
 
-            CurrentEndPoint.transform.position = (Vector2)Vector2Int.RoundToInt(ClampedPosition); //FloorToInt is prefered however it causes some problem with unsymetric world
+            CurrentEndPoint.transform.position =
+                (Vector2)Vector2Int.RoundToInt(
+                    ClampedPosition); //FloorToInt is prefered however it causes some problem with unsymetric world
             CurrentEndPoint.PointID = CurrentEndPoint.transform.position;
             CurrentBar.UpdateCreatingBar(CurrentEndPoint.transform.position);
         }

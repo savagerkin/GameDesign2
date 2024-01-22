@@ -12,12 +12,15 @@ public class Bar : MonoBehaviour
     public BoxCollider2D boxCollider;
 
     public HingeJoint2D StartJoint;
+
     public HingeJoint2D EndJoint;
+
     // Update is called once per frame
     float StartJointCurrentLoad = 0f;
     float EndJointCurrentLoad = 0f;
     MaterialPropertyBlock propBlock;
     public float actualCost;
+
     public void UpdateCreatingBar(Vector2 ToPosition)
     {
         transform.position = (ToPosition + StartPosition) / 2;
@@ -32,6 +35,7 @@ public class Bar : MonoBehaviour
         boxCollider.size = barSpriteRenderer.size;
         actualCost = Length * Cost;
     }
+
     public void UpdateMaterial()
     {
         if (StartJoint != null) StartJointCurrentLoad = StartJoint.reactionForce.magnitude / StartJoint.breakForce;
@@ -42,8 +46,11 @@ public class Bar : MonoBehaviour
         propBlock.SetFloat("_Load", maxLoad);
         barSpriteRenderer.SetPropertyBlock(propBlock);
     }
-    public void Update(){
-        if(Time.timeScale == 1){
+
+    public void Update()
+    {
+        if (Time.timeScale == 1)
+        {
             UpdateMaterial();
         }
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3920321044068291785}
   - component: {fileID: 3920321044068291784}
   m_Layer: 5
-  m_Name: Answer1
+  m_Name: Answer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answerText: {fileID: 7139815623654083630}
+  questionSetup: {fileID: 0}
 --- !u!1 &7168224217687808454
 GameObject:
   m_ObjectHideFlags: 0

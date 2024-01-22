@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 239039150907770537}
   - component: {fileID: 1422442819142292763}
   - component: {fileID: -9148113096451307068}
-  m_Layer: 7
-  m_Name: BrickWall
+  m_Layer: 6
+  m_Name: SteelWall
   m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1159935039, guid: ed2c9228d3f7b9b419c6420b11f29bba, type: 3}
+  m_Sprite: {fileID: 1666793353, guid: a7b35a14bd18fe1429d9f21f381072b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 13, y: 0.65}
+  m_Size: {x: 1, y: 0.65}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f65b8bae5edd2748bc6db4d7487d285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 40
+  Cost: 100
   maxLength: 3
   StartPosition: {x: 0, y: 0}
   barSpriteRenderer: {fileID: 2745098648263481408}
@@ -145,10 +145,10 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 7.8399997, y: 0, z: 8.53, w: 0}
+    border: {x: 2.9199998, y: 0, z: 3.1999998, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 18.81, y: 5.1}
-    newSize: {x: 13, y: 0.65}
+    oldSize: {x: 19.01, y: 2.98}
+    newSize: {x: 1, y: 0.65}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
@@ -167,7 +167,7 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: 300
+  m_BreakForce: 600
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
@@ -191,7 +191,7 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: 300
+  m_BreakForce: 600
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
