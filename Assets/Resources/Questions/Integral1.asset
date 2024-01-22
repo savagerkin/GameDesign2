@@ -15,7 +15,7 @@ MonoBehaviour:
   question: 'What is the integral of x<sup>5</sup> '
   category: Integration
   answers:
-  - x<sup> 6</sup>*6<sup>-1</sup> + C
-  - x<sup> 6</sup>*6<sup>1</sup> + C
-  - x<sup> 6</sup>*5<sup>-1</sup> + C
-  - x<sup> 6</sup>*5<sup>1</sup> + C
+  - x<sup>6</sup>*6<sup>-1</sup>+C
+  - x<sup>6</sup>*6<sup>1</sup>+C
+  - x<sup>6</sup>*5<sup>-1</sup>+C
+  - x<sup>6</sup>*5<sup>1</sup>+C

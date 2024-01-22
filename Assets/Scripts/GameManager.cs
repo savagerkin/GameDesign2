@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,9 +24,11 @@ public class GameManager : MonoBehaviour
 
     private BuildManager _buildManager;
     private RoundCounter _roundCounter;
+    [SerializeField] private TMP_Text roundText;
 
     void Awake()
     {
+        
         _buildManager = FindObjectOfType<BuildManager>();
 
         if (_buildManager == null)
@@ -43,6 +46,8 @@ public class GameManager : MonoBehaviour
         //Creating the postion of alive square
         _roundCounter = FindObjectOfType<RoundCounter>();
         roundNumber = _roundCounter.RoundCount;
+        roundText.text = "You survived " + roundNumber.ToString() + " rounds";
+        
         var position = MinHeight.transform.position;
         position.y = (float)(roundNumber / 0.75);
         if (position.y >= 10)

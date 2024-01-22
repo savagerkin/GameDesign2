@@ -24,4 +24,9 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("Quiz");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

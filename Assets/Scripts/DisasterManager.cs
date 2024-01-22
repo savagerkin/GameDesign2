@@ -67,9 +67,9 @@ public class DisasterManager : MonoBehaviour
     private void Awake()
     {
         _roundCounter = FindObjectOfType<RoundCounter>();
-        boulderMass = 4 + _roundCounter.RoundCount;
-        windMagnitude = (float)(4 + 0.75 * _roundCounter.RoundCount);
-        earthquakeMagnitude = (15f) +_roundCounter.RoundCount;
+        boulderMass = (float)(3 + (_roundCounter.RoundCount / 2));
+        windMagnitude = (float)(3 + 0.75 * _roundCounter.RoundCount);
+        earthquakeMagnitude = (6f) +_roundCounter.RoundCount;
     }
 
 

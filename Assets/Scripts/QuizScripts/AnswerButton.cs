@@ -19,6 +19,7 @@ public class AnswerButton : MonoBehaviour
     {
         buildManager = FindObjectOfType<BuildManager>();
         limit += buildManager.Point;
+        _text.text = "Points:" + buildManager.Point.ToString();
     }
     public void SetAnswerText(string newText)
     {
@@ -29,7 +30,7 @@ public class AnswerButton : MonoBehaviour
     {
         isCorrect = newBool;
     }
-
+    
     public void OnClick()
     {
         if (isCorrect)

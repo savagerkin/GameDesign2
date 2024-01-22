@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3437246d8a9f24104ba908875d551f98, type: 3}
-  m_Name: Integral2
+  m_Name: Derivative5
   m_EditorClassIdentifier: 
-  question: 'What is the integral of 2x<sup>5</sup> '
-  category: Integration
+  question: What is the derivative of sin(x)?
+  category: Derivation
   answers:
-  - x<sup> 6</sup>*3 <sup>-1</sup>+C
-  - x<sup> 6</sup>*4 <sup>1</sup>+C
-  - x<sup> 6</sup>*3<sup>-1</sup>+C
-  - x<sup> 6</sup>*4<sup>1</sup>+C
+  - cos(x)
+  - sin(x)
+  - sin(x)<sup>-1</sup>
+  - tan(x)
