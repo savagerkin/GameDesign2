@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,18 @@ using UnityEngine.UI;
 
 public class AnswerButton : MonoBehaviour
 {
-    public BuildManager buildManager;
+    
+    private BuildManager buildManager;
     private bool isCorrect;
     [SerializeField] private TextMeshProUGUI answerText;
     public QuestionSetup questionSetup;
     [SerializeField] private Text _text;
+    private int limit = 4;
+    public void Awake()
+    {
+        buildManager = FindObjectOfType<BuildManager>();
+        limit += buildManager.Point;
+    }
     public void SetAnswerText(string newText)
     {
         answerText.text = newText;
@@ -36,9 +44,9 @@ public class AnswerButton : MonoBehaviour
         buildManager.Point++;
         switchQuestion();
         _text.text = buildManager.Point.ToString();
-        if (buildManager.Point > 1)
+        if (buildManager.Point > limit)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("Building");
         }
     }
 
@@ -48,4 +56,6 @@ public class AnswerButton : MonoBehaviour
         questionSetup.SetQuestionValues();
         questionSetup.SetAnswerValues();
     }
+
+
 }

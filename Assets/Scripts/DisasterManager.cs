@@ -48,6 +48,7 @@ public class DisasterManager : MonoBehaviour
     public float earthquakeMagnitude = 30f;
     
     private int disasterRandomiser;
+    [SerializeField] private Canvas winCanvas;
     
     
 
@@ -90,9 +91,7 @@ public class DisasterManager : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
                 CancelInvoke("ChangeEarthquakeAngle"); // Stop the InvokeRepeating method
-                SceneManager.LoadScene(0);
-
-
+                
                 //Disasters end:
                 if (disastersActive)
                 {
@@ -111,6 +110,9 @@ public class DisasterManager : MonoBehaviour
                             break;
                     }
                 }
+
+                Time.timeScale = 0;
+                winCanvas.gameObject.SetActive(true);
             }
         }
     }

@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public Button SteelButton;
 
     public BarCreator barCreator;
+    public GameObject creationUIObject;
 
 
     public void UpdateBudgetUI(float CurrentBudget, float LevelBudget)
@@ -63,6 +64,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void TurnOffUI()
+    {
+        creationUIObject.SetActive(false);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -70,8 +75,11 @@ public class UIManager : MonoBehaviour
     }
 
     // Update is called once per frame
+    private RoundCounter _roundCounter;
     public void Restart()
     {
+        _roundCounter = FindObjectOfType<RoundCounter>();
+        _roundCounter.RoundCount--;
         SceneManager.LoadScene("Building");
     }
 

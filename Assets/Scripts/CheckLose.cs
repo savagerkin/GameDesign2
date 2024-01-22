@@ -37,14 +37,6 @@ public class CheckLose : MonoBehaviour
     {
         Time.timeScale = 0;
         loserCanvas.gameObject.SetActive(true);
-        StartCoroutine(LoadMainMenu());
     }
-    [SerializeField] Animator transitionAnim;
-    IEnumerator LoadMainMenu()
-    {
-        transitionAnim.SetTrigger("End");
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("");
-        transitionAnim.SetTrigger("Start");
-    }
+
 }
