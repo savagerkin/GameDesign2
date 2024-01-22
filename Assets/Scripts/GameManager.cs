@@ -26,10 +26,11 @@ public class GameManager : MonoBehaviour
         AllPoints.Clear();
         Time.timeScale = 0;
 
-        var position = MinHeight.transform.position;
-        position.y = roundNumber;
-        MinHeight.transform.position = position;
+        //Creating the postion of losing square
 
+        var position = MinHeight.transform.position;
+        position.y = roundNumber / 2;
+        MinHeight.transform.position = position;
         middleOfMaxMin = (MaxHeight.transform.position.y - MinHeight.transform.position.y) / 2;
 
         var vector3 = minimumBarSquare.transform.position;
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+
         if (Time.time == 0)
         {
             _barCreator.GameObject().SetActive(true);

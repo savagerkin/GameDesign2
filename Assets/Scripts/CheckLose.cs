@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckLose : MonoBehaviour
 {
@@ -30,9 +31,20 @@ public class CheckLose : MonoBehaviour
             }
         }
     }
+
+    [SerializeField] private Canvas loserCanvas;
     private void loseGame()
     {
         Time.timeScale = 0;
-        
+        loserCanvas.gameObject.SetActive(true);
+        StartCoroutine(LoadMainMenu());
+    }
+    [SerializeField] Animator transitionAnim;
+    IEnumerator LoadMainMenu()
+    {
+        transitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("");
+        transitionAnim.SetTrigger("Start");
     }
 }

@@ -72,7 +72,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     public void Restart()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Building");
     }
 
     public void Play()

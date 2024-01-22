@@ -22,6 +22,7 @@ public class DisasterManager : MonoBehaviour
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DisasterManager : MonoBehaviour
 {
@@ -89,6 +90,7 @@ public class DisasterManager : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
                 CancelInvoke("ChangeEarthquakeAngle"); // Stop the InvokeRepeating method
+                SceneManager.LoadScene(0);
 
 
                 //Disasters end:

@@ -345,7 +345,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &81418929
 GameObject:
@@ -458,7 +458,7 @@ Transform:
   - {fileID: 1104136188}
   - {fileID: 1279097160}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &200102834
 GameObject:
@@ -1290,6 +1290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b5b185e791532459214136c72d3555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loserCanvas: {fileID: 1015245476}
+  transitionAnim: {fileID: 0}
 --- !u!1 &545080448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,7 +1859,7 @@ Transform:
   - {fileID: 382166601}
   - {fileID: 531495984}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015245473
 GameObject:
@@ -1877,7 +1879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1015245474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1953,7 +1955,7 @@ RectTransform:
   m_Children:
   - {fileID: 44412393}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2026,7 +2028,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1087787466
 GameObject:
@@ -2559,7 +2561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5347484681353916641, guid: 1bcc66fcfc0444644bfad60205cd40d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.38
+      value: 3.38
       objectReference: {fileID: 0}
     - target: {fileID: 5347484681353916641, guid: 1bcc66fcfc0444644bfad60205cd40d6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3162,7 +3164,7 @@ MonoBehaviour:
   MaxHeight: {fileID: 1845395657}
   MinHeight: {fileID: 382166601}
   _barCreator: {fileID: 384191043}
-  roundNumber: 2
+  roundNumber: 0
 --- !u!1 &1645520037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3345,7 +3347,7 @@ Transform:
   - {fileID: 1197524978}
   - {fileID: 1726736663}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726736662
 GameObject:
@@ -3516,7 +3518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5347484681353916641, guid: 1bcc66fcfc0444644bfad60205cd40d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.62
+      value: -2.62
       objectReference: {fileID: 0}
     - target: {fileID: 5347484681353916641, guid: 1bcc66fcfc0444644bfad60205cd40d6, type: 3}
       propertyPath: m_LocalPosition.y
